@@ -1,0 +1,22 @@
+{
+  "name": "btsing",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sirganya/sdlsurveys",
+  "authors": [
+    "Greg Kavanagh <greg@concretenoise.com>"
+  ],
+  "description": "BTC transaction audio generator",
+  "main": "app.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "socket.io-client": "~0.9.16"
+  }
+}
