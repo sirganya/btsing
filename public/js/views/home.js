@@ -14,7 +14,7 @@ define(['exports', 'tweenmax', 'js/views/sounds.js', 'text!templates/home.html']
 
 		events: {
 
-			//'click #addDB': 'addDB'
+			'click .info': 'showCredits'
 
 		},
 
@@ -74,7 +74,7 @@ define(['exports', 'tweenmax', 'js/views/sounds.js', 'text!templates/home.html']
 				var note = String(out.value).charAt(0);
 				var pan = note * 2 * Math.random() < 0.5 ? -1 : 1;
 				console.log(idx);
-				var wait = 0.9 * idx / 10 ;
+				var wait = 0.9 * idx  ;
 				this.sounds.triggerSynth(note, pan, wait);
 
 			},this);
@@ -180,6 +180,11 @@ define(['exports', 'tweenmax', 'js/views/sounds.js', 'text!templates/home.html']
 			}
 
 
+		},
+
+		showCredits: function(){
+
+			$('.credits').toggle();
 		},
 
 
