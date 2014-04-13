@@ -119,7 +119,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 
 		//console.log('trigger note', note);
 		rhodes[note].play({
-			volume: 0.2,
+			volume: 0.15,
 			panning: pan,
 			setreverb: verb
 		});
@@ -127,7 +127,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 
 
 	sounds.triggerSynth = function(note, pan, wait) {
-		console.log('wait: ', wait);
+		//console.log('wait: ', wait);
 		saw.play({
 
 			wait: wait,
