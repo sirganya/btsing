@@ -86,7 +86,8 @@ define(['exports', 'tweenmax', 'js/views/sounds.js', 'text!templates/home.html']
 				var pan = note * 2 * Math.random() < 0.5 ? -1 : 1;
 				//console.log(idx);
 				var wait = 0.6 * idx;
-				this.sounds.triggerSynth(note, pan, wait);
+				var volume = 0.05 / idx;
+				this.sounds.triggerSynth(note, pan, wait, volume);
 
 			}, this);
 

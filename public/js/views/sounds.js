@@ -27,7 +27,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 		source: "assets/sounds/rhodes/65755__corsica-s__c-s-rhodes-mark-ii-a2.mp3",
 		callback: sounds.sampleLoaded(),
 		reverb: {
-			wet: 1, // Volume of the reverberations.
+			wet: 0, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav", // A URL for an impulse response file, if you do not want to use the default impulse response.
 		},
 	});
@@ -35,7 +35,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 		source: "assets/sounds/rhodes/65719__corsica-s__c-s-rhodes-mark-ii-c2.mp3",
 		callback: sounds.sampleLoaded(),
 		reverb: {
-			wet: 1, // Volume of the reverberations.
+			wet: 0, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav",
 
 		},
@@ -44,7 +44,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 		source: "assets/sounds/rhodes/65723__corsica-s__c-s-rhodes-mark-ii-d2.mp3",
 		callback: sounds.sampleLoaded(),
 		reverb: {
-			wet: 1, // Volume of the reverberations.
+			wet: 0, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
 		},
 	});
@@ -52,7 +52,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 		source: "assets/sounds/rhodes/65725__corsica-s__c-s-rhodes-mark-ii-e2.mp3",
 		callback: sounds.sampleLoaded(),
 		reverb: {
-			wet: 1, // Volume of the reverberations.
+			wet: 0, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
 		},
 	});
@@ -60,7 +60,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 		source: "assets/sounds/rhodes/65730__corsica-s__c-s-rhodes-mark-ii-g2.mp3",
 		callback: sounds.sampleLoaded(),
 		reverb: {
-			wet: 1, // Volume of the reverberations.
+			wet: 0, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
 		},
 	});
@@ -68,7 +68,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 		source: "assets/sounds/rhodes/65720__corsica-s__c-s-rhodes-mark-ii-c3.mp3",
 		callback: sounds.sampleLoaded(),
 		reverb: {
-			wet: 1, // Volume of the reverberations.
+			wet: 0, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
 		},
 	});
@@ -76,7 +76,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 		source: "assets/sounds/rhodes/65724__corsica-s__c-s-rhodes-mark-ii-d3.mp3",
 		callback: sounds.sampleLoaded(),
 		reverb: {
-			wet: 1, // Volume of the reverberations.
+			wet: 0, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
 		},
 	});
@@ -84,7 +84,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 		source: "assets/sounds/rhodes/65726__corsica-s__c-s-rhodes-mark-ii-e3aif.mp3",
 		callback: sounds.sampleLoaded(),
 		reverb: {
-			wet: 1, // Volume of the reverberations.
+			wet: 0, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
 		},
 	});
@@ -92,7 +92,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 		source: "assets/sounds/rhodes/65651__corsica-s__c-s-rhodes-mark-ii-a5.mp3",
 		callback: sounds.sampleLoaded(),
 		reverb: {
-			wet: 1, // Volume of the reverberations.
+			wet: 0, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
 		},
 	});
@@ -100,7 +100,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 		source: "assets/sounds/rhodes/65657__corsica-s__c-s-rhodes-mark-ii-d5.mp3",
 		callback: sounds.sampleLoaded(),
 		reverb: {
-			wet: 1, // Volume of the reverberations.
+			wet: 0, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
 		},
 	});
@@ -108,7 +108,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 		source: "assets/sounds/rhodes/65659__corsica-s__c-s-rhodes-mark-ii-e5.mp3",
 		callback: sounds.sampleLoaded(),
 		reverb: {
-			wet: 1, // Volume of the reverberations.
+			wet: 0, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
 		},
 	});
@@ -116,7 +116,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 		source: "assets/sounds/rhodes/65664__corsica-s__c-s-rhodes-mark-ii-g5.mp3",
 		callback: sounds.sampleLoaded(),
 		reverb: {
-			wet: 1, // Volume of the reverberations.
+			wet: 0, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
 		},
 	});
@@ -161,10 +161,11 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 	};
 
 
-	sounds.triggerSynth = function(note, pan, wait) {
+	sounds.triggerSynth = function(note, pan, wait, volume) {
 		//console.log('wait: ', wait);
+		//if(saw) saw.stop();
 		saw.play({
-
+			volume: volume,
 			wait: wait,
 			pitch: notes[note]
 		});
