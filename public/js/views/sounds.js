@@ -1,15 +1,31 @@
 define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 
 
+	var numberOfSamples = 12;
+	var numberOfSamplesLoaded = 0;
+	var allSamplesLoaded = false;
+
+	sounds.sampleLoaded = function(){
+
+		
+
+		numberOfSamplesLoaded ++;
+		if(numberOfSamplesLoaded >= numberOfSamples){
+			
+		 	allSamplesLoaded = true;
+		}
+	}
 
 	Wad.setGlobalReverb({
 		wet: 1, // Volume of the reverberations.
-		impulse:  "assets/reverbs/large_bottle_hall.wav" // A URL for an impulse response file
+		impulse:  "assets/reverbs/large_bottle_hall.wav", // A URL for an impulse response file
+		callback: sounds.sampleLoaded()
 	});
 
 
 	var a_tine1 = new Wad({
 		source: "assets/sounds/rhodes/65755__corsica-s__c-s-rhodes-mark-ii-a2.mp3",
+		callback: sounds.sampleLoaded(),
 		reverb: {
 			wet: 1, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav", // A URL for an impulse response file, if you do not want to use the default impulse response.
@@ -17,13 +33,16 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 	});
 	var a_tine2 = new Wad({
 		source: "assets/sounds/rhodes/65719__corsica-s__c-s-rhodes-mark-ii-c2.mp3",
+		callback: sounds.sampleLoaded(),
 		reverb: {
 			wet: 1, // Volume of the reverberations.
-			impulse: "assets/reverbs/large_bottle_hall.wav"
+			impulse: "assets/reverbs/large_bottle_hall.wav",
+
 		},
 	});
 	var a_tine3 = new Wad({
 		source: "assets/sounds/rhodes/65723__corsica-s__c-s-rhodes-mark-ii-d2.mp3",
+		callback: sounds.sampleLoaded(),
 		reverb: {
 			wet: 1, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
@@ -31,6 +50,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 	});
 	var a_tine4 = new Wad({
 		source: "assets/sounds/rhodes/65725__corsica-s__c-s-rhodes-mark-ii-e2.mp3",
+		callback: sounds.sampleLoaded(),
 		reverb: {
 			wet: 1, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
@@ -38,6 +58,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 	});
 	var a_tine5 = new Wad({
 		source: "assets/sounds/rhodes/65730__corsica-s__c-s-rhodes-mark-ii-g2.mp3",
+		callback: sounds.sampleLoaded(),
 		reverb: {
 			wet: 1, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
@@ -45,6 +66,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 	});
 	var a_tine7 = new Wad({
 		source: "assets/sounds/rhodes/65720__corsica-s__c-s-rhodes-mark-ii-c3.mp3",
+		callback: sounds.sampleLoaded(),
 		reverb: {
 			wet: 1, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
@@ -52,6 +74,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 	});
 	var a_tine8 = new Wad({
 		source: "assets/sounds/rhodes/65724__corsica-s__c-s-rhodes-mark-ii-d3.mp3",
+		callback: sounds.sampleLoaded(),
 		reverb: {
 			wet: 1, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
@@ -59,6 +82,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 	});
 	var a_tine9 = new Wad({
 		source: "assets/sounds/rhodes/65726__corsica-s__c-s-rhodes-mark-ii-e3aif.mp3",
+		callback: sounds.sampleLoaded(),
 		reverb: {
 			wet: 1, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
@@ -66,6 +90,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 	});
 	var a_tine10 = new Wad({
 		source: "assets/sounds/rhodes/65651__corsica-s__c-s-rhodes-mark-ii-a5.mp3",
+		callback: sounds.sampleLoaded(),
 		reverb: {
 			wet: 1, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
@@ -73,6 +98,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 	});
 	var a_tine11 = new Wad({
 		source: "assets/sounds/rhodes/65657__corsica-s__c-s-rhodes-mark-ii-d5.mp3",
+		callback: sounds.sampleLoaded(),
 		reverb: {
 			wet: 1, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
@@ -80,6 +106,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 	});
 	var a_tine12 = new Wad({
 		source: "assets/sounds/rhodes/65659__corsica-s__c-s-rhodes-mark-ii-e5.mp3",
+		callback: sounds.sampleLoaded(),
 		reverb: {
 			wet: 1, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
@@ -87,6 +114,7 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 	});
 	var a_tine13 = new Wad({
 		source: "assets/sounds/rhodes/65664__corsica-s__c-s-rhodes-mark-ii-g5.mp3",
+		callback: sounds.sampleLoaded(),
 		reverb: {
 			wet: 1, // Volume of the reverberations.
 			impulse: "assets/reverbs/large_bottle_hall.wav"
@@ -123,6 +151,13 @@ define(['exports', 'backbone', 'wad'], function(sounds, Backbone, wad) {
 			panning: pan,
 			setreverb: verb
 		});
+	};
+
+	
+
+	sounds.areAllSamplesLoaded = function(){
+
+		return allSamplesLoaded;
 	};
 
 

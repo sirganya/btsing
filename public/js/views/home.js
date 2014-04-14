@@ -42,15 +42,26 @@ define(['exports', 'tweenmax', 'js/views/sounds.js', 'text!templates/home.html']
 			exampleSocket.onmessage = function(event) {
 
 				var message = JSON.parse(event.data);
-				that.paintIt(message);
-				that.playIt(message);
-				that.playOutputs(message);
-				that.paintOutputs(message);
+				
+				
+				if ( that.sounds.areAllSamplesLoaded() ) {
+					$('.spinner').hide();
+					that.paintIt(message);
+					that.playIt(message);
+					that.playOutputs(message);
+					that.paintOutputs(message);
+				}
 
 
 
 			};
 
+
+
+		},
+
+
+		startIt: function() {
 
 
 		},
@@ -65,30 +76,30 @@ define(['exports', 'tweenmax', 'js/views/sounds.js', 'text!templates/home.html']
 			this.sounds.triggerRhodes(note, pan, verb);
 		},
 
-		playOutputs: function(message){
+		playOutputs: function(message) {
 
 			//var wait = .02;
 
-			_.each(message.x.out, function(out, idx){
+			_.each(message.x.out, function(out, idx) {
 
 				var note = String(out.value).charAt(0);
 				var pan = note * 2 * Math.random() < 0.5 ? -1 : 1;
 				//console.log(idx);
-				var wait = 0.6 * idx  ;
+				var wait = 0.6 * idx;
 				this.sounds.triggerSynth(note, pan, wait);
 
-			},this);
+			}, this);
 
 		},
 
 
-		paintOutputs: function(message){
+		paintOutputs: function(message) {
 
 
 			var currentCol = this.thisCol;
 			var currentRow = this.thisRow;
 
-			_.each(message.x.out, function(out, idx){
+			_.each(message.x.out, function(out, idx) {
 
 				var cssPath = this.getCssPath(currentRow, currentCol);
 				var wait = 0.9 * idx / 10;
@@ -106,10 +117,10 @@ define(['exports', 'tweenmax', 'js/views/sounds.js', 'text!templates/home.html']
 				tl.add(Tweenmax.to(cssPath, 5, {
 
 
-						borderColor: '#FFF',
-						opacity: 0.3
+					borderColor: '#FFF',
+					opacity: 0.3
 
-					}));
+				}));
 
 				currentCol++;
 
@@ -120,7 +131,6 @@ define(['exports', 'tweenmax', 'js/views/sounds.js', 'text!templates/home.html']
 					if (currentRow === this.rows) currentRow = 1;
 
 				}
-
 
 
 
@@ -164,10 +174,10 @@ define(['exports', 'tweenmax', 'js/views/sounds.js', 'text!templates/home.html']
 			tl.add(Tweenmax.to(cssPath, 30, {
 
 
-					backgroundColor: '#000',
-					borderColor: '#FFF'
+				backgroundColor: '#000',
+				borderColor: '#FFF'
 
-				}));
+			}));
 
 			this.thisCol++;
 
@@ -182,7 +192,7 @@ define(['exports', 'tweenmax', 'js/views/sounds.js', 'text!templates/home.html']
 
 		},
 
-		showCredits: function(){
+		showCredits: function() {
 
 			$('.credits').toggle();
 		},

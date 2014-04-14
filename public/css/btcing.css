@@ -64,3 +64,9 @@ html, body{
 	padding: 5%;
 	display: none;
 }
+
+.spinner{
+	position: absolute;
+	top: 10%;
+	left: 10%;
+}
