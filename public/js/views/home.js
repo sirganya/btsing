@@ -37,12 +37,12 @@ define(['exports', 'tweenmax', 'js/views/sounds.js', 'text!templates/home.html']
 				}));
 			};
 
-			var stockSocket = new WebSocket("wss://demo.kaazing.com/jms");
+			// var stockSocket = new WebSocket("wss://demo.kaazing.com/jms");
 
-			stockSocket.onmessage = function(event){
+			// stockSocket.onmessage = function(event){
 
-				console.log(event);
-			};
+			// 	console.log(event);
+			// };
 
 
 			exampleSocket.onmessage = function(event) {
@@ -53,8 +53,8 @@ define(['exports', 'tweenmax', 'js/views/sounds.js', 'text!templates/home.html']
 				if ( that.sounds.areAllSamplesLoaded() ) {
 					$('.spinner').hide();
 					that.paintIt(message);
-					//that.playIt(message);
-					//that.playOutputs(message);
+					that.playIt(message);
+					that.playOutputs(message);
 					that.paintOutputs(message);
 				}
 
